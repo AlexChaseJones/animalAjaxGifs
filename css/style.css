@@ -1,0 +1,19 @@
+body, html {
+	font-family: sans-serif;
+}
+
+#header {
+	text-align: center;
+}
+
+h1 {
+	font-size: 5em;
+}
+.currentImages {
+	width: 300px;
+	display: inline-block;
+}
+
+.currentImages img {
+	width: 300px;
+}
