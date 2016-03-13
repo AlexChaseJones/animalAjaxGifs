@@ -13,9 +13,9 @@ function generate(response){
 		var imageContainer = $('<img>');
 		imageContainer.addClass('currentImages');
 		imageContainer.attr('id', i);
-		(imageContainer).attr('src', response.data[i].images.downsized_still.url);
+		(imageContainer).attr('src', response.data[i].images.original_still.url);
 		$("#" + i).append(imageContainer)
-		console.log(response.data[1].images.downsized_still.url);
+		console.log(response.data[1].images.original_still.url);
 	}
 
 	$('html, body').animate({
@@ -71,8 +71,8 @@ $(document).on('click', '.currentImages', function(){
     	url: queryURL,
     	method: 'GET'})
     	.done(function(response) {
-     	(current).attr('src', response.data[imageId].images.downsized.url);
-     	console.log(response.data[imageId].images.downsized.url);
+     	(current).attr('src', response.data[imageId].images.original.url);
+     	console.log(response.data[imageId].images.original.url);
     });
 })
 
@@ -85,16 +85,17 @@ $(document).on('click', '.play', function(){
     	url: queryURL,
     	method: 'GET'})
     	.done(function(response) {
-     	(current).attr('src', response.data[imageId].images.downsized_still.url);
-     	console.log(response.data[imageId].images.downsized_still.url);
+     	(current).attr('src', response.data[imageId].images.original_still.url);
+     	console.log(response.data[imageId].images.original_still.url);
     });
 })
 
 $(document).on('click', '.recentGif', function(){
 	page = 0;
+	gif = $(this).data('name');
 	$('#images').empty();
 	limit = $("input[name='perPage']:checked").val();
-	queryURL = "http://api.giphy.com/v1/gifs/search?q=" + $(this).data('name') + "&api_key=dc6zaTOxFJmzC&limit=" + limit;
+	queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=" + limit;
 
     ajaxBuild();
 })
