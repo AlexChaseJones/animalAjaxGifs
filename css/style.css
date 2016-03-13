@@ -17,11 +17,11 @@ body, html {
 
 #header h1 {
 	font-size: 5em;
-	padding-top: 10px;
+	padding: 20px 0px;
 }
 
 #header h2 {
-	margin:10px 0px;
+	margin:20px 0px;
 	font-size: 2em;
 }
 
@@ -35,11 +35,11 @@ body, html {
 
 #recent {
 	border-bottom:5px solid black;
-	min-height: 25px;
+	min-height: 50px;
 }
 
 .recentGif {
-
+	margin:15px;
 }
 
 input {
@@ -47,7 +47,7 @@ input {
 }
 
 #images {
-	overflow-y: scroll; 
+	overflow-y: hidden; 
 	overflow-x: auto;
 	white-space: nowrap;
 	height: 400px;
@@ -55,13 +55,31 @@ input {
 }
 
 .currentImages {
-	width: 300px;
 	display: inline-block;
-	vertical-align: top;
 	border-radius:15px;
+	height: 370px;
+	width: auto;
 }
 
 .imageContainer {
 	display: inline-block;
 	margin: 10px;
+}
+
+#next {
+	display: inline-block;
+}
+
+#next h2 {
+	font-size: 2em;
+	position: relative;
+	bottom:180px;
+	padding: 100px 10px;
+	margin: 0 10px;
+	border-radius: 15px;
+	background-color: rgba(255,255,255,.4);
+}
+
+#next h2:hover {
+	background-color: rgba(255,255,255,.7);
 }

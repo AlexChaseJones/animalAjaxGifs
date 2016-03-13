@@ -18,6 +18,14 @@ function generate(response){
 		console.log(response.data[1].images.downsized_still.url);
 	}
 
+	$('html, body').animate({
+        scrollTop: $("#images").offset().top
+    }, 1000);
+
+	var next = $('<div id="next">');
+	(next).html('<h2>Next Page</h2>');
+	$('#' + (limit - 1)).after(next);
+
 }
 
 function addButton(newGif){
@@ -28,9 +36,19 @@ function addButton(newGif){
 	$('#recent').append(button);
 }
 
+function ajaxBuild(){
+	$.ajax({
+    	url: queryURL,
+    	method: 'GET'})
+    	.done(function(response) {
+     	generate(response);
+    });
+}
+
 //MAIN PROCESSES
 //=======================================
 $('#search').on('click', function(){
+	page = 0;
 	$('#images').empty();
 	gif = $('#searchBar').val().toLowerCase().trim();
 	if (userArray.indexOf(gif) == -1) {
@@ -39,14 +57,9 @@ $('#search').on('click', function(){
 	}	
 
 	limit = $("input[name='perPage']:checked").val();
-    queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=" + limit;
-    debugger;
-    $.ajax({
-    	url: queryURL,
-    	method: 'GET'})
-    	.done(function(response) {
-     	generate(response);
-    });
+	page = 0;
+    queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&offset=" + page + "&limit=" + limit;
+    ajaxBuild();
 });
 
 $(document).on('click', '.currentImages', function(){
@@ -78,16 +91,22 @@ $(document).on('click', '.play', function(){
 })
 
 $(document).on('click', '.recentGif', function(){
+	page = 0;
 	$('#images').empty();
 	limit = $("input[name='perPage']:checked").val();
 	queryURL = "http://api.giphy.com/v1/gifs/search?q=" + $(this).data('name') + "&api_key=dc6zaTOxFJmzC&limit=" + limit;
 
-    $.ajax({
-    	url: queryURL,
-    	method: 'GET'})
-    	.done(function(response) {
-     	generate(response);
-    });
+    ajaxBuild();
 })
+
+$(document).on('click', '#next', function(){
+	$('#images').empty();
+	page = +page + +$("input[name='perPage']:checked").val();
+    queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&offset=" + page + "&limit=" + limit;
+    ajaxBuild();
+})
+
+
+
 
 
