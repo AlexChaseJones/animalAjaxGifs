@@ -1,19 +1,67 @@
 body, html {
 	font-family: sans-serif;
+	background-color: black;
+	margin-top: 10px;
+	color: white;
+}
+
+#wrapper {
+	background-image: url('../images/blueStripes.png');
+	background-size: cover;
+	background-position: center;
 }
 
 #header {
+ 
+}
+
+#header h1 {
+	font-size: 5em;
+	padding-top: 10px;
+}
+
+#header h2 {
+	margin:10px 0px;
+	font-size: 2em;
+}
+
+#searchBar {
+	color: black;
+}
+
+#recent, #images, #header {
 	text-align: center;
 }
 
-h1 {
-	font-size: 5em;
+#recent {
+	border-bottom:5px solid black;
+	min-height: 25px;
 }
-.currentImages {
-	width: 300px;
+
+.recentGif {
+
+}
+
+input {
 	display: inline-block;
 }
 
-.currentImages img {
+#images {
+	overflow-y: scroll; 
+	overflow-x: auto;
+	white-space: nowrap;
+	height: 400px;
+	background-color: rgba(0,0,0,.7);
+}
+
+.currentImages {
 	width: 300px;
+	display: inline-block;
+	vertical-align: top;
+	border-radius:15px;
+}
+
+.imageContainer {
+	display: inline-block;
+	margin: 10px;
 }

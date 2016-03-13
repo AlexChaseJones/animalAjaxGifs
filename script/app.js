@@ -1,12 +1,12 @@
 //SETUP VARIABLES
 //=======================================
-var userArray = [];
+var userArray = [''];
 
 //FUNCTIONS
 //=======================================
 function generate(response){
-	for (var i = 0; i < 10; i++) {
-		var newDiv = $('<div>');
+	for (var i = 0; i < limit; i++) {
+		var newDiv = $('<div class="imageContainer">');
 		(newDiv).attr('id', i);
 		$('#images').append(newDiv);
 
@@ -22,7 +22,7 @@ function generate(response){
 
 function addButton(newGif){
 	var button = $('<button>');
-	(button).addClass('recentGif');
+	(button).addClass('recentGif btn btn-success');
 	(button).attr('data-name', newGif);
 	(button).html(newGif);
 	$('#recent').append(button);
@@ -38,8 +38,9 @@ $('#search').on('click', function(){
 		addButton(gif);
 	}	
 
-    queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=10";
-
+	limit = $("input[name='perPage']:checked").val();
+    queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=" + limit;
+    debugger;
     $.ajax({
     	url: queryURL,
     	method: 'GET'})
@@ -78,8 +79,8 @@ $(document).on('click', '.play', function(){
 
 $(document).on('click', '.recentGif', function(){
 	$('#images').empty();
-
-	queryURL = "http://api.giphy.com/v1/gifs/search?q=" + $(this).data('name') + "&api_key=dc6zaTOxFJmzC&limit=10";
+	limit = $("input[name='perPage']:checked").val();
+	queryURL = "http://api.giphy.com/v1/gifs/search?q=" + $(this).data('name') + "&api_key=dc6zaTOxFJmzC&limit=" + limit;
 
     $.ajax({
     	url: queryURL,

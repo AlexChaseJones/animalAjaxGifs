@@ -4,6 +4,7 @@
 	<title>
 		
 	</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="script/jquery-2.2.0.js"></script>
@@ -14,16 +15,36 @@
 	<div class="container">
 		<div id="header">
 		<h1>Gif Search</h1>
-		<input type="text" id="searchBar" minlength="20">
-			<button id="search">Add+</button>
+		<div class="row row-centered">
+ 			<div class="col-lg-6 col-centered">
+				<div class="input-group">
+				    <input id="searchBar" type="text" class="form-control" placeholder="Search for...">
+				    <span class="input-group-btn">
+				        <button id="search" class="btn btn-default" type="button">Go!</button>
+		      		</span>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="input-group">
+			<input type="text" id="searchBar" minlength="20" class="form-control" placeholder="Search for...">
+			<span class="input-group-btn">
+				<button id="search" class="button btn-default">Add</button>
+			</span>
+		</div> -->
+		<form action="">
+		<h2>Results per page</h2>
+		  <input type="radio" name="perPage" value="10" checked="checked">10
+		  <input type="radio" name="perPage" value="25"> 25
+		  <input type="radio" name="perPage" value="50"> 50
+		</form>
 		</div>
 	</div>
-	<div class="container">
+	<div class="contain">
 		<div id="recent">
 			
 		</div>
 	</div>
-	<div class="container">
+	<div class="contain">
 		<div id="images"> 
 			
 		</div>	
