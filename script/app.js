@@ -15,7 +15,6 @@ function generate(response){
 		imageContainer.attr('id', i);
 		(imageContainer).attr('src', response.data[i].images.original_still.url);
 		$("#" + i).append(imageContainer)
-		console.log(response.data[1].images.original_still.url);
 	}
 
 	$('html, body').animate({
@@ -46,23 +45,16 @@ function ajaxBuild(){
 }
 
 function pausePlay(play){
-	if (play) {
-		$.ajax({
-	    	url: queryURL,
-	    	method: 'GET'})
-	    	.done(function(response) {
-	     	(current).attr('src', response.data[imageId].images.original.url);
-	     	console.log(response.data[imageId].images.original.url);
-	    });
-	} else {
-		$.ajax({
-	    	url: queryURL,
-	    	method: 'GET'})
-	    	.done(function(response) {
-	     	(current).attr('src', response.data[imageId].images.original_still.url);
-	     	console.log(response.data[imageId].images.original_still.url);
-    });
-	}
+	$.ajax({
+    	url: queryURL,
+    	method: 'GET',
+    }).done(function(response) {
+		if (play) {	
+		    (current).attr('src', response.data[imageId].images.original.url);
+		} else {
+	    	(current).attr('src', response.data[imageId].images.original_still.url);
+    	};
+	});
 }
 //MAIN PROCESSES I.E EVENT LISTENERS
 //=======================================
