@@ -45,7 +45,26 @@ function ajaxBuild(){
     });
 }
 
-//MAIN PROCESSES
+function pausePlay(play){
+	if (play) {
+		$.ajax({
+	    	url: queryURL,
+	    	method: 'GET'})
+	    	.done(function(response) {
+	     	(current).attr('src', response.data[imageId].images.original.url);
+	     	console.log(response.data[imageId].images.original.url);
+	    });
+	} else {
+		$.ajax({
+	    	url: queryURL,
+	    	method: 'GET'})
+	    	.done(function(response) {
+	     	(current).attr('src', response.data[imageId].images.original_still.url);
+	     	console.log(response.data[imageId].images.original_still.url);
+    });
+	}
+}
+//MAIN PROCESSES I.E EVENT LISTENERS
 //=======================================
 $('#search').on('click', function(){
 	page = 0;
@@ -62,18 +81,17 @@ $('#search').on('click', function(){
     ajaxBuild();
 });
 
+$('#searchBar').on('keyup', function(e){
+        if(e.which == 13){
+            $('#search').click();
+		}
+	});
 $(document).on('click', '.currentImages', function(){
 	current = $(this);
 	(current).addClass('play');
 	imageId = (current).attr('id');
 
-	$.ajax({
-    	url: queryURL,
-    	method: 'GET'})
-    	.done(function(response) {
-     	(current).attr('src', response.data[imageId].images.original.url);
-     	console.log(response.data[imageId].images.original.url);
-    });
+	pausePlay(doIt);
 })
 
 $(document).on('click', '.play', function(){
@@ -81,13 +99,7 @@ $(document).on('click', '.play', function(){
 	(current).removeClass('play');
 	imageId = (current).attr('id');
 
-	$.ajax({
-    	url: queryURL,
-    	method: 'GET'})
-    	.done(function(response) {
-     	(current).attr('src', response.data[imageId].images.original_still.url);
-     	console.log(response.data[imageId].images.original_still.url);
-    });
+	pausePlay();
 })
 
 $(document).on('click', '.recentGif', function(){

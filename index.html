@@ -4,6 +4,7 @@
 	<title>
 		
 	</title>
+	<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -14,31 +15,33 @@
 <div id="wrapper">
 	<div class="contain">
 		<div id="header">
-		<h1>Gif Search</h1>
-		<div class="row">
-		<div class="col-sm-3"></div>
- 			<div class="col-sm-6">
-				<div class="input-group">
-				    <input id="searchBar" type="text" class="form-control" placeholder="Search for...">
-				    <span class="input-group-btn">
-				        <button id="search" class="btn btn-default" type="button">Go!</button>
-		      		</span>
+			<h1>Gif Search</h1>
+			<div class="row">
+			<div class="col-sm-3"></div>
+	 			<div class="col-sm-6">
+					<div class="input-group">
+					    <input id="searchBar" type="text" class="form-control" placeholder="Search for...">
+					    <span class="input-group-btn">
+					        <button id="search" class="btn btn-default" type="button">Go!</button>
+			      		</span>
+					</div>
 				</div>
+			<div class="col-sm-3"></div>
 			</div>
-		<div class="col-sm-3"></div>
-		</div>
-		<form action="">
-		<h2>Results per page</h2>
-		  <input type="radio" name="perPage" value="10" checked="checked">10
-		  <input type="radio" name="perPage" value="25"> 25
-		  <input type="radio" name="perPage" value="50"> 50
-		  <input type="radio" name="perPage" value="100"> 100
-		</form>
+			<div id="results">
+				<form>
+					<h2>results per page</h2>
+					 <input type="radio" name="perPage" value="10" checked="checked">10
+					 <input type="radio" name="perPage" value="25"> 25
+					 <input type="radio" name="perPage" value="50"> 50
+					 <input type="radio" name="perPage" value="100"> 100
+				</form>
+			</div>
 		</div>
 	</div>
 	<div class="contain">
 		<div id="recent">
-			
+
 		</div>
 	</div>
 	<div class="contain">
