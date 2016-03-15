@@ -54,10 +54,11 @@ input {
 
 #images {
 	overflow-y: hidden; 
-	overflow-x: auto;
+	overflow-x: scroll;
 	white-space: nowrap;
 	height: 400px;
 	background-color: rgba(0,0,0,.7);
+	-webkit-overflow-scrolling: touch;
 }
 
 .currentImages {
