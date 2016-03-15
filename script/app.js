@@ -91,7 +91,7 @@ $(document).on('click', '.currentImages', function(){
 	(current).addClass('play');
 	imageId = (current).attr('id');
 
-	pausePlay(doIt);
+	pausePlay(true);
 })
 
 $(document).on('click', '.play', function(){
@@ -99,7 +99,7 @@ $(document).on('click', '.play', function(){
 	(current).removeClass('play');
 	imageId = (current).attr('id');
 
-	pausePlay();
+	pausePlay(false);
 })
 
 $(document).on('click', '.recentGif', function(){
