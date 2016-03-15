@@ -6,7 +6,7 @@ body, html {
 }
 
 #wrapper {
-	background-image: url('../images/blueStripes.png');
+	background-image: url('../images/blueStripes.jpg');
 	background-size: cover;
 	background-position: center;
 }
@@ -14,7 +14,7 @@ body, html {
 #header h1 {
 	font-size: 5em;
 	padding: 20px 0px;
-	background-color: rgba(0,0,0,.3);
+	background-color: rgba(0,0,0,.5);
 	margin-bottom: 20px;
 }
 
@@ -26,7 +26,7 @@ body, html {
 
 #results {
 	padding-bottom:5px 0px 10px 0px;
-	background-color: rgba(0,0,0,.3);
+	background-color: rgba(0,0,0,.5);
 	margin-top: 10px;
 	min-height: 100px;
 }
@@ -48,8 +48,8 @@ body, html {
 	margin:15px;
 }
 
-input {
-	display: inline-block;
+input[type="radio"] {
+	margin: 0px 3px 0px 10px;
 }
 
 #images {
@@ -83,10 +83,10 @@ input {
 	bottom:180px;
 	padding: 100px 10px;
 	margin: 0 10px;
-	border-radius: 15px;
-	background-color: rgba(255,255,255,.4);
+	border-radius: 20px;
+	background-color: rgba(255,255,255,.6);
 }
 
 #next h2:hover {
-	background-color: rgba(255,255,255,.7);
+	background-color: rgba(255,255,255,.3);
 }
